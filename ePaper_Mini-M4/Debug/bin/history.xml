@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=ePaper_Mini-M4.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\ePaper_Mini-M4 -TC:\CooCox\CoIDE\configuration\ProgramData\ePaper_Mini-M4/arm-gcc-link.ld -g">
+      <target file="ePaper_Mini-M4.elf" lastModified="1510302ff07">
+         <source file="..\obj\ePaperDisplay.o" lastModified="1510302f8fc"/>
+         <source file="..\obj\delay.o" lastModified="1510302f95b"/>
+         <source file="..\obj\mini_m4.o" lastModified="1510302f9ae"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="1510302f9e2"/>
+         <source file="..\obj\main.o" lastModified="1510302fa24"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1510302fa92"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1510302faea"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="1510302fb30"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="1510302fb97"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1510302fc05"/>
+         <source file="..\obj\misc.o" lastModified="1510302fc50"/>
+      </target>
+   </processor>
+</history>

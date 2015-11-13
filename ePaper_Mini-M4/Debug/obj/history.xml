@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc 4.8.2 i686-w64-mingw32 -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F415RG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\ePaper_Mini-M4\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\ePaper_Mini-M4\ePaperDisplay -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib -I..\..\..\workspace\ePaper_Mini-M4\cmsis -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib\include -I..\..\..\workspace\ePaper_Mini-M4">
+      <target file="stm32f4xx_gpio.o" lastModified="1510302faea">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15102684cdf"/>
+      </target>
+      <target file="ePaperDisplay.o" lastModified="1510302f8fc">
+         <source file="..\..\..\ePaperDisplay\ePaperDisplay.c" lastModified="151027851af"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="1510302fb30">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="1510274ba78"/>
+      </target>
+      <target file="stm32f4xx_i2c.o" lastModified="1510302fc05">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_i2c.c" lastModified="1510268923e"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="1510302f9e2">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="1510267f715"/>
+      </target>
+      <target file="main.o" lastModified="1510302fa24">
+         <source file="..\..\..\main.c" lastModified="15103021eec"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="1510302fb97">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="151026879f5"/>
+      </target>
+      <target file="delay.o" lastModified="1510302f95b">
+         <source file="..\..\..\ePaperDisplay\delay.c" lastModified="1510302eaab"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="1510302fa92">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15102681fe8"/>
+      </target>
+      <target file="misc.o" lastModified="1510302fc50">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="1510268e5ec"/>
+      </target>
+      <target file="mini_m4.o" lastModified="1510302f9ae">
+         <source file="..\..\..\ePaperDisplay\mini_m4.c" lastModified="15102d8236c"/>
+      </target>
+   </processor>
+</history>
