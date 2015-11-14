@@ -5,6 +5,7 @@ void LEDs_Init ( void )
 	/* Onboard leds are connected to:
 	 * ORANGE = PC12
 	 * RED = PC13
+	 * PC11 is used for debug
 	 */
 	RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOC , ENABLE );
 
@@ -98,6 +99,11 @@ void ChangeBorderState( BitAction state )
 	GPIO_WriteBit( GPIOB, GPIO_Pin_14 , state );
 }
 
+void ChangeCSState( BitAction state )
+{
+	GPIO_WriteBit( GPIOA, GPIO_Pin_4 , state );
+}
+
 uint8_t IsBusy ( void )
 {
 	return GPIO_ReadInputDataBit( GPIOB , GPIO_Pin_13 );
@@ -115,7 +121,7 @@ void SPI1_Init ( void )
 
 	RCC_AHB1PeriphClockCmd( RCC_AHB1Periph_GPIOA , ENABLE );
 
-	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7 ;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_6 | GPIO_Pin_5 ;
 	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
@@ -132,7 +138,7 @@ void SPI1_Init ( void )
 	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_4 ;
 	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_UP;
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
 
 	GPIO_Init( GPIOA , &GPIO_InitStruct );
@@ -140,7 +146,8 @@ void SPI1_Init ( void )
 	GPIO_SetBits( GPIOA , GPIO_Pin_4 );
 
 	/* Initialize SPI
-	 * 5.25 Mbits/s (APB2_Clock / 16)
+	 * https://github.com/g4lvanix/STM32F4-examples/blob/master/SPI/main.c
+	 * 2.625 Mbits/s (APB2_Clock / 32)
 	 * Mode 0 ( CPHA on first edge , CPOL is Low )
 	 * Data size = 8 bits
 	 * Full duplex
@@ -152,35 +159,61 @@ void SPI1_Init ( void )
 
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_SPI1 , ENABLE );
 
-	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
+	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32;
 	SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;
 	SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
 	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;
 	SPI_InitStruct.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
 	SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB;
 	SPI_InitStruct.SPI_Mode = SPI_Mode_Master;
-	SPI_InitStruct.SPI_NSS = SPI_NSSInternalSoft_Set;
+	SPI_InitStruct.SPI_NSS = SPI_NSS_Soft | SPI_NSSInternalSoft_Set;
 
 	SPI_Init( SPI1 , &SPI_InitStruct );
 
 	SPI_Cmd(SPI1, ENABLE);
 }
 
-/* This funtion is used to transmit and receive data
+/* This function is used to transmit and receive data
  * with SPI1
- * *data --> pointer to data to be transmitted
- * The received value will be returned in it.
  */
-void SPI1_send(uint8_t * data)
+uint8_t SPI1_Send(uint8_t data)
 {
 	// write data to be transmitted to the SPI data register
-	SPI1->DR = *data;
+	SPI_I2S_SendData( SPI1 , data );
 
 	// wait until transmit complete
-	while( !(SPI1->SR & SPI_I2S_FLAG_TXE) );
+	while ( !SPI_I2S_GetFlagStatus( SPI1 , SPI_I2S_FLAG_TXE ) );
+
 	// wait until receive complete
-	while( !(SPI1->SR & SPI_I2S_FLAG_RXNE) );
+	while ( !SPI_I2S_GetFlagStatus( SPI1 , SPI_I2S_FLAG_RXNE ) );
+
 	// wait until SPI is not busy anymore
-	while( SPI1->SR & SPI_I2S_FLAG_BSY );
-	*data =  SPI1->DR; // return received data from SPI data register
+	while ( SPI_I2S_GetFlagStatus( SPI1 , SPI_I2S_FLAG_BSY ) );
+
+	return SPI_I2S_ReceiveData( SPI1 );
+}
+
+uint8_t SPI1_Read ( const uint8_t * buffer , uint16_t length )
+{
+
+	uint8_t rbuffer[4];
+	uint8_t result = 0;
+
+	uint16_t i = 0;
+
+	ChangeCSState( Bit_RESET );
+
+	// send all data
+	for (i = 0; i < length; ++i)
+	{
+		result = SPI1_Send(*buffer++);
+		if (i < 4)
+		{
+			rbuffer[i] = result;
+		}
+	}
+
+	ChangeCSState( Bit_SET );
+
+	return result;
 }

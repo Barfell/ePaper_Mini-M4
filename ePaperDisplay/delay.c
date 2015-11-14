@@ -15,7 +15,6 @@ void SysTick_Init(void)
  */
 void TimeTick_Decrement( void )
 {
-	GPIOC->ODR ^= GPIO_Pin_11;
 	if ( sysTickCounter ) // While sysTickCounter != 0
 	{
 		sysTickCounter--; // Decrement it

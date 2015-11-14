@@ -2,23 +2,20 @@
 #include "mini_m4.h"
 #include "ePaperDisplay.h"
 #include "delay.h"
+#include "Hello_World.h"
 
 int main(void)
 {
+	SysTick_Init();
 	LEDs_Init();
 	SPI1_Init();
-	SysTick_Init();
+	EPD_Init();
 
-	//ChangeLedState( ORANGE , Bit_SET );
-	//ChangeLedState( RED , Bit_RESET );
-	GPIO_WriteBit( GPIOC , GPIO_Pin_11 , Bit_RESET );
 
     while(1)
     {
-    	//ToggleLed( ORANGE );
-    	//ToggleLed( RED );
-    	//GPIO_ToggleBits( GPIOC , GPIO_Pin_11 );
-    	delay_1ms();
+    	DisplayImage( Hello_World_bits );
+    	delay_nms(2000);
     }
 }
 
