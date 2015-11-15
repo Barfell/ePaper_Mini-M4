@@ -10,14 +10,16 @@ int main ( void )
 	LEDs_Init();
 	ChangeLedState( ORANGE , Bit_SET );
 	SPI1_Init();
-
-	EPD_Init();
-	EPD_PowerOff();
 	EPD_Init();
 	ChangeLedState( ORANGE , Bit_RESET );
 
 	ChangeLedState( RED , Bit_SET );
-	DisplayImage( Hello_World_bits );
+
+	uint8_t i = 0;
+	for ( i = 0 ; i < 20 ; i++ )
+	{
+		DisplayImage( IMAGE );
+	}
 	EPD_PowerOff();
 	ChangeLedState( RED , Bit_RESET );
 

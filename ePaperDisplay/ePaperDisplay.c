@@ -316,7 +316,7 @@ void DisplayInverse ( uint8_t * image )
 
 	for ( i = 0 ; i < 176 ; i++)
 	{
-		DisplayLine( image + ((176 / 8) * i) , i , INVERSE );
+		DisplayLine( image + ( 33 * i ) , i , INVERSE );
 	}
 }
 
@@ -332,11 +332,11 @@ void DisplayBW ( uint8_t * image )
 		{
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + ((176 / 8) * i) , i , BLACK );
+				DisplayLine( image + ( 33 * i ) , i , BLACK );
 			}
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + ((176 / 8) * i) , i , WHITE );
+				DisplayLine( image + ( 33 * i ) , i , WHITE );
 			}
 		}
 	}
@@ -348,7 +348,7 @@ void DisplayNew ( uint8_t * image )
 
 	for ( i = 0 ; i < 176 ; i++)
 	{
-		DisplayLine( image + ((176 / 8) * i) , i , NEW);
+		DisplayLine( image + ( 33 * i ) , i , NEW);
 	}
 }
 
@@ -366,52 +366,51 @@ void DisplayNothing ( void )
 void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 {
 	uint8_t i = 0;
+
 	uint8_t data_scan[ 44 ] = { 0x00 };
-
 	if ( stage != DUMMY )
-		data_scan[ 44 - ( line / 4 ) ] = 0b00000011 << ( i % 4 );
+		data_scan[ 43 - ( line / 4 ) ] = 0b00000011 << ( 2 * ( line % 4 ) );
 
-	uint8_t data_odd[ 33 ] = { 0x00 };
+	uint8_t data_odd[ 33 ]  = { 0x00 };
 	uint8_t data_even[ 33 ] = { 0x00 };
 
 	if ( stage != NOTHING && stage != DUMMY )
 	{
-		for ( i = 33 ; i > 0 ; i-- )
+		for ( i = 0 ; i < 33 ; i++ )
 		{
-			uint8_t temp = 0;
+			uint8_t oddIndex = 32 - i;
 
-			data_odd[ 33 - i ] = image[i] & ODD_MASK;
-			data_odd[ 33 - i ] >>= 1;
-			data_odd[ 33 - i ] |= BW_MASK;
+			data_odd[ oddIndex ] = image[i] & ODD_MASK;
+			REVERSE( data_odd[ oddIndex] );
+			data_odd[ oddIndex ] |= BW_MASK;
 
-			data_even[ i - 1 ] = image[i] & EVEN_MASK;
-			data_even[ i - 1 ] |= BW_MASK;
+			data_even[ i ] = image[i] & EVEN_MASK;
+			data_even[ i ] |= BW_MASK;
 
 			switch (stage)
 			{
 				case INVERSE:
-					data_odd[ 33 - i ] ^= INVERSE_MASK;
-					data_even[ i - 1 ] ^= INVERSE_MASK;
+					data_odd[ oddIndex ] ^= INVERSE_MASK;
+					data_even[ i ] ^= INVERSE_MASK;
 					break;
 
 				case BLACK:
-					temp = data_odd[ 33 - i ] & BW_MASK;
-					data_odd[ 33 - i ] <<= 1;
-					data_odd[ 33 - i ] |= temp;
-
-					temp = data_even[ i - 1 ] & BW_MASK;
-					data_even[ i - 1 ] <<= 1;
-					data_even[ i - 1 ] |= temp;
+					data_odd[ oddIndex ] = 0xFF;
+					data_even[ i ] = 0xFF;
 					break;
 
 				case WHITE:
-					data_odd[ 33 - i ] ^= 0xFF;
-					data_odd[ 33 - i ] << 1;
-
-					data_even[ i - 1 ] ^= 0xFF;
-					data_even[ i - 1 ] << 1;
+					data_odd[ oddIndex ] = 0xAA;
+					data_even[ i ] = 0xAA;
 					break;
-				default:
+
+				case NEW:
+					break;
+
+				case NOTHING:
+					break;
+
+				case DUMMY:
 					break;
 			}
 		}
@@ -419,6 +418,7 @@ void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 
 	uint8_t data[ 112 ] = { 0x00 };
 	data[ 0 ] = DATA_W_HDR;
+	data[ 1 ] = 0x00;
 
 	for ( i = 0 ; i < 33 ; i++ )
 		data[ i + 2 ] = data_odd[ i ];

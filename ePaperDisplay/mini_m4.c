@@ -147,7 +147,7 @@ void SPI1_Init ( void )
 
 	/* Initialize SPI
 	 * https://github.com/g4lvanix/STM32F4-examples/blob/master/SPI/main.c
-	 * 2.625 Mbits/s (APB2_Clock / 32)
+	 * 10.5 Mbits/s (APB2_Clock / 8)
 	 * Mode 0 ( CPHA on first edge , CPOL is Low )
 	 * Data size = 8 bits
 	 * Full duplex
@@ -159,7 +159,7 @@ void SPI1_Init ( void )
 
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_SPI1 , ENABLE );
 
-	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32;
+	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
 	SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;
 	SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
 	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;
@@ -195,8 +195,6 @@ uint8_t SPI1_Send(uint8_t data)
 
 uint8_t SPI1_Read ( const uint8_t * buffer , uint16_t length )
 {
-
-	uint8_t rbuffer[4];
 	uint8_t result = 0;
 
 	uint16_t i = 0;
@@ -205,13 +203,7 @@ uint8_t SPI1_Read ( const uint8_t * buffer , uint16_t length )
 
 	// send all data
 	for (i = 0; i < length; ++i)
-	{
 		result = SPI1_Send(*buffer++);
-		if (i < 4)
-		{
-			rbuffer[i] = result;
-		}
-	}
 
 	ChangeCSState( Bit_SET );
 
