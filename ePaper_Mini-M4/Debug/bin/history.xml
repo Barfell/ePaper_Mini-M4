@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=ePaper_Mini-M4.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\ePaper_Mini-M4 -TC:\CooCox\CoIDE\configuration\ProgramData\ePaper_Mini-M4/arm-gcc-link.ld -g">
-      <target file="ePaper_Mini-M4.elf" lastModified="1510758c170">
-         <source file="..\obj\ePaperDisplay.o" lastModified="1510758bc1f"/>
-         <source file="..\obj\delay.o" lastModified="1510758bc72"/>
-         <source file="..\obj\mini_m4.o" lastModified="1510758bcdd"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="1510758bd16"/>
-         <source file="..\obj\main.o" lastModified="1510758bd71"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1510758bdd7"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1510758be29"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="1510758be7e"/>
-         <source file="..\obj\stm32f4xx_spi.o" lastModified="1510758bee4"/>
-         <source file="..\obj\stm32f4xx_i2c.o" lastModified="1510758bf50"/>
-         <source file="..\obj\misc.o" lastModified="1510758bf93"/>
+      <target file="ePaper_Mini-M4.elf" lastModified="151086f96dc">
+         <source file="..\obj\ePaperDisplay.o" lastModified="151086f916f"/>
+         <source file="..\obj\delay.o" lastModified="151086f91bc"/>
+         <source file="..\obj\mini_m4.o" lastModified="151086f9208"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="151086f9250"/>
+         <source file="..\obj\main.o" lastModified="151086f92ac"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="151086f9315"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="151086f937a"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="151086f93ba"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="151086f943e"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="151086f94ac"/>
+         <source file="..\obj\misc.o" lastModified="151086f94f2"/>
       </target>
    </processor>
 </history>

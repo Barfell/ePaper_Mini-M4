@@ -246,22 +246,16 @@ void TurnOnOE ( void )
 
 void DisplayImage ( uint8_t * image )
 {
-	uint16_t i = 0;
-
 	DisplayInverse( image );
 	DisplayBW( image );
-
-	for ( i = 0 ; i < 176 ; i++)
-	{
-		DisplayLine( image + (264 * i) );
-	}
+	DisplayNew( image );
 }
 
 void DisplayInverse ( uint8_t * image )
 {
-	uint8_t j = 0;
+	uint16_t i = 0;
 
-	for ( j = 0 ; j < 176 ; j++)
+	for ( i = 0 ; i < 176 ; i++)
 	{
 		DisplayLine( image + (264 * i) , INVERSE );
 	}
@@ -269,7 +263,34 @@ void DisplayInverse ( uint8_t * image )
 
 void DisplayBW ( uint8_t * image )
 {
+	uint16_t i = 0;
+	uint8_t repeat = 0;
+	uint8_t stageTime = 0;
 
+	for ( repeat = 0 ; repeat < REPEAT_CYCLE ; repeat++ )
+	{
+		for( stageTime = 0 ; stageTime < STAGE_TIME ; stageTime++ )
+		{
+			for ( i = 0 ; i < 176 ; i++)
+			{
+				DisplayLine( image + (264 * i) , BLACK );
+			}
+			for ( i = 0 ; i < 176 ; i++)
+			{
+				DisplayLine( image + (264 * i) , WHITE );
+			}
+		}
+	}
+}
+
+void DisplayNew ( uint8_t * image )
+{
+	uint16_t i = 0;
+
+	for ( i = 0 ; i < 176 ; i++)
+	{
+		DisplayLine( image + (264 * i) , NEW);
+	}
 }
 
 void DisplayLine ( uint8_t * line , STAGE stage )
@@ -281,6 +302,8 @@ void DisplayLine ( uint8_t * line , STAGE stage )
 	uint8_t data_even[ 33 ] = { 0x00 };
 	for ( i = 33 ; i > 0 ; i-- )
 	{
+		uint8_t temp = 0;
+
 		data_odd[ 33 - i ] = line[i] & ODD_MASK;
 		data_odd[ 33 - i ] >>= 1;
 		data_odd[ 33 - i ] |= BW_MASK;
@@ -288,10 +311,32 @@ void DisplayLine ( uint8_t * line , STAGE stage )
 		data_even[ i - 1 ] = line[i] & EVEN_MASK;
 		data_even[ i - 1 ] |= BW_MASK;
 
-		if ( stage == INVERSE )
+		switch (stage)
 		{
-			data_odd[ 33 - i ] ^= INVERSE_MASK;
-			data_even[ i - 1 ] ^= INVERSE_MASK;
+			case INVERSE:
+				data_odd[ 33 - i ] ^= INVERSE_MASK;
+				data_even[ i - 1 ] ^= INVERSE_MASK;
+				break;
+
+			case BLACK:
+				temp = data_odd[ 33 - i ] & BW_MASK;
+				data_odd[ 33 - i ] <<= 1;
+				data_odd[ 33 - i ] |= temp;
+
+				temp = data_even[ i - 1 ] & BW_MASK;
+				data_even[ i - 1 ] <<= 1;
+				data_even[ i - 1 ] |= temp;
+				break;
+
+			case WHITE:
+				data_odd[ 33 - i ] ^= 0xFF;
+				data_odd[ 33 - i ] << 1;
+
+				data_even[ i - 1 ] ^= 0xFF;
+				data_even[ i - 1 ] << 1;
+				break;
+			default:
+				break;
 		}
 	}
 

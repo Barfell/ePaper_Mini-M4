@@ -4,7 +4,7 @@
 #include "delay.h"
 #include "Hello_World.h"
 
-int main(void)
+int main ( void )
 {
 	SysTick_Init();
 	LEDs_Init();
@@ -19,7 +19,7 @@ int main(void)
     }
 }
 
-void SysTick_Handler( void )
+void SysTick_Handler ( void )
 {
 	// Called every microsecond
 	TimeTick_Decrement();

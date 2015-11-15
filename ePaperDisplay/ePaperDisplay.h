@@ -18,6 +18,9 @@
 #define BW_MASK 0b10101010
 #define INVERSE_MASK 0b01010101
 
+#define STAGE_TIME 5
+#define REPEAT_CYCLE 5
+
 void EPD_Init ( void );
 void EPD_PowerOn ( void );
 uint16_t GetCOGid ( void );
@@ -36,11 +39,12 @@ uint8_t CheckDCDC ( void );
 void OutputEnaToDisa ( void );
 void TurnOnOE ( void );
 
-typedef enum { INVERSE , WB , NEW }STAGE;
+typedef enum { INVERSE , WHITE , BLACK , NEW }STAGE;
 
 void DisplayImage ( uint8_t * image );
 void DisplayInverse ( uint8_t * image );
 void DisplayBW ( uint8_t * image );
+void DisplayNew ( uint8_t * image );
 void DisplayLine ( uint8_t * line , STAGE stage );
 
 #endif // __E_PAPER_DISPLAY_H
