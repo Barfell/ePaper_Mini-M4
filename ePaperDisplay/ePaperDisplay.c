@@ -22,13 +22,13 @@ void EPD_Init ( void )
 
 	if ( !CheckBreakage() )
 	{
-		ChangeLedState( RED , Bit_SET );
+		// ChangeLedState( RED , Bit_SET );
 		// return;
 	}
 
 	EnterPowerSavingMode();
 	ChannelSelect();
-	HighPowerMode();
+	OscillatorPowerMode( HIGH_PWR );
 	PowerSettings1();
 	SetVComLevel();
 	PowerSettings2();
@@ -70,6 +70,40 @@ void EPD_PowerOn ( void )
 
 	ChangeResetState( 		Bit_SET );
 	delay_nms( 10 );
+}
+
+void EPD_PowerOff ( void )
+{
+	uint8_t * dummy = (uint8_t *) 0x00 ;
+
+	// Empty buffer
+	DisplayNothing();
+	DisplayLine( dummy , 0 , NOTHING );
+	delay_nms( 20 );
+
+	RefreshBorder( 200 );
+	PowerSettings3();
+	DriverLatchOn();
+
+	ChargePumpVoltageSettings( VCOM_OFF );
+	ChargePumpVoltageSettings( NEGATIVE_OFF );
+	delay_nms( 350 );
+
+	DischargeInternal();
+	ChargePumpVoltageSettings( POSITIVE_OFF );
+	OscillatorPowerMode( OSCILLATOR_OFF );
+	delay_nms( 75 );
+
+	ChangeBorderState( Bit_RESET );
+	ChangePowerState( Bit_RESET );
+	delay_nms( 20 );
+
+	ChangeResetState( Bit_RESET );
+	ChangeCSState( Bit_RESET );
+	ChangeDischargeState( Bit_SET );
+	delay_nms( 200 );
+
+	ChangeDischargeState( Bit_SET );
 }
 
 uint16_t GetCOGid ( void )
@@ -122,10 +156,10 @@ void ChannelSelect ( void )
 	dummy = SPI1_Read( channelSelect + 2, 11 );
 }
 
-void HighPowerMode ( void )
+void OscillatorPowerMode ( eOSCILLATOR_MODE mode )
 {
 	uint16_t dummy = 0;
-	uint8_t highPowerMode[4] = { CMD_HDR , 0x07 , DATA_W_HDR , 0xD1 };
+	uint8_t highPowerMode[4] = { CMD_HDR , 0x07 , DATA_W_HDR , (uint8_t) mode };
 
 	// Enter high power mode. Send 0x70 0x07 0x72 0xD1
 	dummy = SPI1_Read( highPowerMode , 2 );
@@ -162,6 +196,16 @@ void PowerSettings2 ( void )
 	dummy = SPI1_Read( powerSettings + 2 , 2 );
 }
 
+void PowerSettings3 ( void )
+{
+	uint16_t dummy = 0;
+	uint8_t powerSettings[4] = { CMD_HDR , 0x0B , DATA_W_HDR , 0x00 };
+
+	// Turn on OE Send 0x70 0x02 0x72 0x07
+	dummy = SPI1_Read( powerSettings , 2 );
+	dummy = SPI1_Read( powerSettings + 2 , 2 );
+}
+
 void DriverLatchOn ( void )
 {
 	uint16_t dummy = 0;
@@ -186,20 +230,14 @@ void ChargePump( void )
 {
 	uint8_t i = 0;
 	uint16_t dummy = 0;
-	uint8_t setChrgPmpPos[4] = { CMD_HDR , 0x05 , DATA_W_HDR , 0x01 };
-	uint8_t setChrgPmpNeg[4] = { CMD_HDR , 0x05 , DATA_W_HDR , 0x03 };
-	uint8_t setChrgPmpVcom[4] = { CMD_HDR , 0x05 , DATA_W_HDR , 0x0F };
 
 	for ( i = 0 ; i < 4 ; i++ )
 	{
-		dummy = SPI1_Read( setChrgPmpPos , 2 );
-		dummy = SPI1_Read( setChrgPmpPos + 2 , 2 );
+		ChargePumpVoltageSettings( POSITIVE_ON );
 		delay_nms( 200 );
-		dummy = SPI1_Read( setChrgPmpNeg , 2 );
-		dummy = SPI1_Read( setChrgPmpNeg + 2 , 2 );
+		ChargePumpVoltageSettings( NEGATIVE_ON );
 		delay_nms( 100 );
-		dummy = SPI1_Read( setChrgPmpVcom , 2 );
-		dummy = SPI1_Read( setChrgPmpVcom + 2 , 2 );
+		ChargePumpVoltageSettings( VCOM_ON );
 		delay_nms( 40 );
 
 		if ( CheckDCDC() )
@@ -210,8 +248,18 @@ void ChargePump( void )
 	}
 	if (i == 4)
 	{
-		ChangeLedState( RED , Bit_SET );
+		// ChangeLedState( RED , Bit_SET );
+		// return;
 	}
+}
+
+void ChargePumpVoltageSettings( eVOLTAGE_SETTINGS settings )
+{
+	uint16_t dummy = 0;
+	uint8_t pumpSettings[4] = { CMD_HDR , 0x05 , DATA_W_HDR , (uint8_t)settings };
+
+	dummy = SPI1_Read( pumpSettings , 2 );
+	dummy = SPI1_Read( pumpSettings + 2 , 2 );
 }
 
 uint8_t CheckDCDC ( void )
@@ -244,11 +292,22 @@ void TurnOnOE ( void )
 	dummy = SPI1_Read( turnOnOE + 2 , 2 );
 }
 
+void DischargeInternal( void )
+{
+	uint16_t dummy = 0;
+	uint8_t dischargeInternal[4] = { CMD_HDR , 0x04 , DATA_W_HDR , 0x80 };
+
+	// Discharge internal Send 0x70 0x04 0x72 0x80
+	dummy = SPI1_Read( dischargeInternal , 2 );
+	dummy = SPI1_Read( dischargeInternal + 2 , 2 );
+}
+
 void DisplayImage ( uint8_t * image )
 {
 	DisplayInverse( image );
 	DisplayBW( image );
 	DisplayNew( image );
+	RefreshBorder( 50 );
 }
 
 void DisplayInverse ( uint8_t * image )
@@ -257,7 +316,7 @@ void DisplayInverse ( uint8_t * image )
 
 	for ( i = 0 ; i < 176 ; i++)
 	{
-		DisplayLine( image + (264 * i) , INVERSE );
+		DisplayLine( image + ((176 / 8) * i) , i , INVERSE );
 	}
 }
 
@@ -273,11 +332,11 @@ void DisplayBW ( uint8_t * image )
 		{
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + (264 * i) , BLACK );
+				DisplayLine( image + ((176 / 8) * i) , i , BLACK );
 			}
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + (264 * i) , WHITE );
+				DisplayLine( image + ((176 / 8) * i) , i , WHITE );
 			}
 		}
 	}
@@ -289,59 +348,77 @@ void DisplayNew ( uint8_t * image )
 
 	for ( i = 0 ; i < 176 ; i++)
 	{
-		DisplayLine( image + (264 * i) , NEW);
+		DisplayLine( image + ((176 / 8) * i) , i , NEW);
 	}
 }
 
-void DisplayLine ( uint8_t * line , STAGE stage )
+void DisplayNothing ( void )
+{
+	uint8_t i = 0;
+	uint8_t * dummy = (uint8_t *) 0x00 ;
+
+	for ( i = 0 ; i < 176 ; i++)
+	{
+		DisplayLine( dummy , i , NOTHING );
+	}
+}
+
+void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 {
 	uint8_t i = 0;
 	uint8_t data_scan[ 44 ] = { 0x00 };
 
+	if ( stage != DUMMY )
+		data_scan[ 44 - ( line / 4 ) ] = 0b00000011 << ( i % 4 );
+
 	uint8_t data_odd[ 33 ] = { 0x00 };
 	uint8_t data_even[ 33 ] = { 0x00 };
-	for ( i = 33 ; i > 0 ; i-- )
+
+	if ( stage != NOTHING && stage != DUMMY )
 	{
-		uint8_t temp = 0;
-
-		data_odd[ 33 - i ] = line[i] & ODD_MASK;
-		data_odd[ 33 - i ] >>= 1;
-		data_odd[ 33 - i ] |= BW_MASK;
-
-		data_even[ i - 1 ] = line[i] & EVEN_MASK;
-		data_even[ i - 1 ] |= BW_MASK;
-
-		switch (stage)
+		for ( i = 33 ; i > 0 ; i-- )
 		{
-			case INVERSE:
-				data_odd[ 33 - i ] ^= INVERSE_MASK;
-				data_even[ i - 1 ] ^= INVERSE_MASK;
-				break;
+			uint8_t temp = 0;
 
-			case BLACK:
-				temp = data_odd[ 33 - i ] & BW_MASK;
-				data_odd[ 33 - i ] <<= 1;
-				data_odd[ 33 - i ] |= temp;
+			data_odd[ 33 - i ] = image[i] & ODD_MASK;
+			data_odd[ 33 - i ] >>= 1;
+			data_odd[ 33 - i ] |= BW_MASK;
 
-				temp = data_even[ i - 1 ] & BW_MASK;
-				data_even[ i - 1 ] <<= 1;
-				data_even[ i - 1 ] |= temp;
-				break;
+			data_even[ i - 1 ] = image[i] & EVEN_MASK;
+			data_even[ i - 1 ] |= BW_MASK;
 
-			case WHITE:
-				data_odd[ 33 - i ] ^= 0xFF;
-				data_odd[ 33 - i ] << 1;
+			switch (stage)
+			{
+				case INVERSE:
+					data_odd[ 33 - i ] ^= INVERSE_MASK;
+					data_even[ i - 1 ] ^= INVERSE_MASK;
+					break;
 
-				data_even[ i - 1 ] ^= 0xFF;
-				data_even[ i - 1 ] << 1;
-				break;
-			default:
-				break;
+				case BLACK:
+					temp = data_odd[ 33 - i ] & BW_MASK;
+					data_odd[ 33 - i ] <<= 1;
+					data_odd[ 33 - i ] |= temp;
+
+					temp = data_even[ i - 1 ] & BW_MASK;
+					data_even[ i - 1 ] <<= 1;
+					data_even[ i - 1 ] |= temp;
+					break;
+
+				case WHITE:
+					data_odd[ 33 - i ] ^= 0xFF;
+					data_odd[ 33 - i ] << 1;
+
+					data_even[ i - 1 ] ^= 0xFF;
+					data_even[ i - 1 ] << 1;
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
 	uint8_t data[ 112 ] = { 0x00 };
-	data[ 1 ] = DATA_W_HDR;
+	data[ 0 ] = DATA_W_HDR;
 
 	for ( i = 0 ; i < 33 ; i++ )
 		data[ i + 2 ] = data_odd[ i ];
@@ -357,4 +434,11 @@ void DisplayLine ( uint8_t * line , STAGE stage )
 	dummy = SPI1_Read( data , 112 );
 
 	TurnOnOE();
+}
+
+void RefreshBorder ( uint8_t delay )
+{
+	ChangeBorderState( Bit_RESET );
+	delay_nms( delay );
+	ChangeBorderState( Bit_SET );
 }
