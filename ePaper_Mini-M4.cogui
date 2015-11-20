@@ -24,25 +24,25 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="327" selectionTopPixel="13"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="175" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="ePaperDisplay.c" partName="ePaperDisplay.c" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.c" title="ePaperDisplay.c" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7260" selectionTopPixel="4956"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10036" selectionTopPixel="4595"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="ePaperDisplay.h" partName="ePaperDisplay.h" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.h" title="ePaperDisplay.h" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1255" selectionTopPixel="358"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="535" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="mini_m4.h" partName="mini_m4.h" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/mini_m4.h" title="mini_m4.h" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/mini_m4.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/MINI_M4/mini_m4.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="460" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="350" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="mini_m4.c" partName="mini_m4.c" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/mini_m4.c" title="mini_m4.c" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/mini_m4.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/MINI_M4/mini_m4.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="43" selectionOffset="2146" selectionTopPixel="1012"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4152" selectionTopPixel="2064"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="delay.h" partName="delay.h" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/delay.h" title="delay.h" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/delay.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/Delay/delay.h"/>
@@ -50,21 +50,24 @@
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="delay.c" partName="delay.c" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/delay.c" title="delay.c" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/ePaperDisplay/delay.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/Delay/delay.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="347" selectionTopPixel="261"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="347" selectionTopPixel="181"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Hello_World.h" partName="Hello_World.h" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/Hello_World.h" title="Hello_World.h" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/Hello_World.h" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Hello_World.h" partName="Hello_World.h" path="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/Hello_World.h" title="Hello_World.h" tooltip="C:/CooCox/CoIDE/workspace/ePaper_Mini-M4/Hello_World.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ePaper_Mini-M4/Hello_World.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="37040" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="88" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState>
-<ExpressionKeySet ExpKeys="n,&amp;n,n+10,2*n,"/>
+<ExpressionKeySet ExpKeys=""/>
 </viewState>
 </view>
+<view id="org.coocox.component.ui.ComponentView" partName="Components">
+<viewState/>
+</view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="6">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/ePaper_Mini-M4"/>
 <element path="/ePaper_Mini-M4/cmsis_boot"/>
@@ -75,9 +78,6 @@
 <element path="/ePaper_Mini-M4/Hello_World.h"/>
 </selection>
 </viewState>
-</view>
-<view id="org.coocox.component.ui.ComponentView" partName="Components">
-<viewState/>
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
@@ -135,10 +135,22 @@
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
-<view id="org.coocox.component.ui.ComponentView"/>
-<view id="org.coocox.builder.ui.views.ProjectView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@59ed1f" orientation="256" selectedTabId="org.coocox.component.ui.ComponentView" style="1">
+<fastViews>
+<view id="org.coocox.component.ui.ComponentView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1dec3be" orientation="256" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="1">
+<fastViews>
+<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@162a8c6" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
+<fastViews>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@52438" orientation="512" selectedTabId="org.coocox.component.ui.Help" style="0">
 <fastViews>
 <view id="org.coocox.component.ui.Help" ratio="0.3"/>
@@ -148,11 +160,9 @@
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@59ed1f">
-<folder activePageID="org.coocox.component.ui.ComponentView" appearance="2" expanded="2">
-<page content="org.coocox.component.ui.ComponentView" label="Components"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.ComponentView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.internal.ViewStack@59ed1f">
@@ -162,11 +172,9 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@162a8c6" ratio="0.7" ratioLeft="441" ratioRight="189" relationship="4" relative="org.eclipse.ui.internal.ViewStack@59ed1f">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.21944036" ratioLeft="298" ratioRight="1060" relationship="2" relative="org.eclipse.ui.internal.ViewStack@59ed1f"/>
@@ -182,11 +190,9 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44920635" ratioLeft="283" ratioRight="347" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1dec3be" ratio="0.36984128" ratioLeft="233" ratioRight="397" relationship="4" relative="org.eclipse.ui.internal.ViewStack@59ed1f">
-<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </mainWindow>
@@ -246,45 +252,63 @@
 <view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@fc5a17">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@fc5a17">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d20483" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d20483" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">
+<folder appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@196c53d" ratio="0.6982942" ratioLeft="655" ratioRight="283" relationship="4" relative="org.eclipse.ui.internal.ViewStack@fc5a17">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@196c53d" ratio="0.6982942" ratioLeft="655" ratioRight="283" relationship="4" relative="org.eclipse.ui.internal.ViewStack@fc5a17">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@12d28ac" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@196c53d">&#x0A;<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@12d28ac" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@196c53d">
+<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@14a8b41" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">&#x0A;<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@14a8b41" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@fc5a17">
+<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -296,160 +320,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/Hello_World.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/MINI_M4/mini_m4.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/MINI_M4/mini_m4.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/Hello_World.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.c"/>
+<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</editor>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/ePaperDisplay/ePaperDisplay.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/Hello_World.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ePaper_Mini-M4/MINI_M4/mini_m4.c"/>
 </editors>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="7734" y="0"/>
+<item historyLabel="Hello_World.h" index="0">
+<position info="not_deleted" x="111" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6857" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="406" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="439" y="0"/>
+<item historyLabel="Hello_World.h" index="0">
+<position info="not_deleted" x="63016" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="5576" y="24"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="406" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1040" y="0"/>
+<item historyLabel="Hello_World.h" index="0">
+<position info="not_deleted" x="88" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6776" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="228" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
+<item historyLabel="mini_m4.c" index="2">
 <position/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6776" y="0"/>
+<item historyLabel="mini_m4.h" index="3">
+<position info="not_deleted" x="350" y="20"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="266" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6711" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1095" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6711" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="42" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
+<item historyLabel="mini_m4.c" index="2">
 <position/>
 </item>
-<item historyLabel="ePaperDisplay.h" index="2">
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="399" y="0"/>
+</item>
+<item historyLabel="mini_m4.c" index="2">
+<position info="not_deleted" x="3825" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="399" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="4">
+<position info="not_deleted" x="7130" y="0"/>
+</item>
+<item historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="90" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="4">
+<position info="not_deleted" x="7130" y="0"/>
+</item>
+<item historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="90" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="6">
+<position info="not_deleted" x="1937" y="1634"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="4">
+<position info="not_deleted" x="9443" y="0"/>
+</item>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="319" y="0"/>
+</item>
+<item historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="128" y="0"/>
+</item>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="319" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position/>
+</item>
+<item historyLabel="Configuration" index="9"/>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="2020" y="1634"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="8086" y="56"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="2020" y="1634"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="8086" y="56"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="1947" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="1947" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="9531" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="769" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="9015" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="769" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="8790" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="769" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="10036" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="769" y="0"/>
+</item>
+<item historyLabel="mini_m4.c" index="11">
+<position info="not_deleted" x="4152" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
+<position info="not_deleted" x="511" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="10036" y="0"/>
+</item>
+<item historyLabel="ePaperDisplay.h" index="10">
 <position info="not_deleted" x="535" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6463" y="0"/>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="319" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="5934" y="41"/>
+<item historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="111" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1255" y="0"/>
+<item historyLabel="Configuration" index="9"/>
+<item historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="111" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="5835" y="0"/>
+<item historyLabel="ePaperDisplay.c" index="8">
+<position info="not_deleted" x="10036" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1305" y="0"/>
+<item historyLabel="main.c" index="7">
+<position info="not_deleted" x="175" y="0"/>
 </item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6089" y="36"/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1255" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1255" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1082" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="436" y="7"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="7173" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="436" y="7"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6141" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="535" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6141" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6516" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6521" y="37"/>
-</item>
-<item historyLabel="ePaperDisplay.h" index="2">
-<position info="not_deleted" x="1255" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6521" y="37"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="5929" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6656" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="5980" y="18"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6033" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6026" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6325" y="33"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="6445" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="7260" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="42" y="0"/>
-</item>
-<item historyLabel="ePaperDisplay.c" index="1">
-<position info="not_deleted" x="7260" y="0"/>
-</item>
-<item historyLabel="Hello_World.h" index="3">
-<position info="not_deleted" x="37040" y="0"/>
-</item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="42" y="0"/>
+<item active="true" historyLabel="Hello_World.h" index="5">
+<position info="not_deleted" x="111" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -458,6 +488,11 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
+<persistable>
+<org.coocox.builder.ui.editors.ConfigEditor/>
+</persistable>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Hello_World.h" tooltip="ePaper_Mini-M4/Hello_World.h">
 <persistable path="/ePaper_Mini-M4/Hello_World.h"/>
 </file>
@@ -499,9 +534,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mini_m4.c" tooltip="ePaper_Mini-M4/MINI_M4/mini_m4.c">
 <persistable path="/ePaper_Mini-M4/MINI_M4/mini_m4.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mini_m4.h" tooltip="ePaper_Mini-M4/MINI_M4/mini_m4.h">
-<persistable path="/ePaper_Mini-M4/MINI_M4/mini_m4.h"/>
 </file>
 </mruList>
 </workbench>

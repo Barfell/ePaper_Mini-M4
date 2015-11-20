@@ -14,12 +14,7 @@ int main ( void )
 	ChangeLedState( ORANGE , Bit_RESET );
 
 	ChangeLedState( RED , Bit_SET );
-
-	uint8_t i = 0;
-	for ( i = 0 ; i < 20 ; i++ )
-	{
-		DisplayImage( IMAGE );
-	}
+	DisplayImage( IMAGE );
 	EPD_PowerOff();
 	ChangeLedState( RED , Bit_RESET );
 

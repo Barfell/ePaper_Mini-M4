@@ -310,19 +310,9 @@ void DisplayImage ( uint8_t * image )
 	RefreshBorder( 50 );
 }
 
-void DisplayInverse ( uint8_t * image )
-{
-	uint16_t i = 0;
-
-	for ( i = 0 ; i < 176 ; i++)
-	{
-		DisplayLine( image + ( 33 * i ) , i , INVERSE );
-	}
-}
-
 void DisplayBW ( uint8_t * image )
 {
-	uint16_t i = 0;
+	uint8_t i = 0;
 	uint8_t repeat = 0;
 	uint8_t stageTime = 0;
 
@@ -332,13 +322,23 @@ void DisplayBW ( uint8_t * image )
 		{
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + ( 33 * i ) , i , BLACK );
+				DisplayUnicolorLine( i , BLACK );
 			}
 			for ( i = 0 ; i < 176 ; i++)
 			{
-				DisplayLine( image + ( 33 * i ) , i , WHITE );
+				DisplayUnicolorLine( i , WHITE );
 			}
 		}
+	}
+}
+
+void DisplayInverse ( uint8_t * image )
+{
+	uint16_t i = 0;
+
+	for ( i = 0 ; i < 176 ; i++)
+	{
+		DisplayLine( image + ( 33 * i ) , i , INVERSE );
 	}
 }
 
@@ -359,8 +359,57 @@ void DisplayNothing ( void )
 
 	for ( i = 0 ; i < 176 ; i++)
 	{
-		DisplayLine( dummy , i , NOTHING );
+		DisplayDummyLine();
 	}
+}
+
+void DisplayUnicolorLine ( uint8_t line , eSTAGE stage )
+{
+	uint8_t data[ 112 ] = { 0x00 };
+	data[ 0 ] = DATA_W_HDR;
+	data[ 1 ] = 0x00;
+
+	uint8_t i = 0;
+	for ( i = 0 ; i < 33 ; i++ )
+	{
+		switch (stage)
+		{
+			case BLACK:
+				data[ i + 2 ] = data[ i + 79 ] = 0xFF;
+				break;
+
+			case WHITE:
+				data[ i + 2 ] = data[ i + 79 ] = 0xAA;
+				break;
+			default:
+				break;
+		}
+	}
+
+	uint8_t scan_index = 35 + 43 - (line / 4);
+	data[ scan_index ] = 0b00000011 << ( 2 * ( line % 4 ) );
+
+	uint8_t header[ 2 ] = { CMD_HDR , START_FRAME };
+
+	uint8_t dummy = 0;
+	dummy = SPI1_Read( header , 2 );
+	dummy = SPI1_Read( data , 112 );
+
+	TurnOnOE();
+}
+
+void DisplayDummyLine ( void )
+{
+	uint8_t dummy = 0;
+
+	uint8_t header[ 2 ] = { CMD_HDR , START_FRAME };
+	dummy = SPI1_Read( header , 2 );
+
+	uint8_t data[ 112 ] = { 0x00 };
+	data[ 0 ] = DATA_W_HDR;
+	dummy = SPI1_Read( data , 112 );
+
+	TurnOnOE();
 }
 
 void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
@@ -368,13 +417,12 @@ void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 	uint8_t i = 0;
 
 	uint8_t data_scan[ 44 ] = { 0x00 };
-	if ( stage != DUMMY )
-		data_scan[ 43 - ( line / 4 ) ] = 0b00000011 << ( 2 * ( line % 4 ) );
+	data_scan[ 43 - ( line / 4 ) ] = 0b00000011 << ( 2 * ( line % 4 ) );
 
 	uint8_t data_odd[ 33 ]  = { 0x00 };
 	uint8_t data_even[ 33 ] = { 0x00 };
 
-	if ( stage != NOTHING && stage != DUMMY )
+	if ( stage != NOTHING )
 	{
 		for ( i = 0 ; i < 33 ; i++ )
 		{
@@ -393,24 +441,7 @@ void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 					data_odd[ oddIndex ] ^= INVERSE_MASK;
 					data_even[ i ] ^= INVERSE_MASK;
 					break;
-
-				case BLACK:
-					data_odd[ oddIndex ] = 0xFF;
-					data_even[ i ] = 0xFF;
-					break;
-
-				case WHITE:
-					data_odd[ oddIndex ] = 0xAA;
-					data_even[ i ] = 0xAA;
-					break;
-
-				case NEW:
-					break;
-
-				case NOTHING:
-					break;
-
-				case DUMMY:
+				default:
 					break;
 			}
 		}
@@ -421,11 +452,12 @@ void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 	data[ 1 ] = 0x00;
 
 	for ( i = 0 ; i < 33 ; i++ )
+	{
 		data[ i + 2 ] = data_odd[ i ];
+		data[ i + 79 ] = data_even[ i ];
+	}
 	for ( i = 0 ; i < 44 ; i++ )
 		data[ i + 35 ] = data_scan[ i ];
-	for ( i = 0 ; i < 33 ; i++ )
-		data[ i + 79 ] = data_even[ i ];
 
 	uint8_t header[ 2 ] = { CMD_HDR , START_FRAME };
 

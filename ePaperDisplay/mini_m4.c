@@ -147,7 +147,7 @@ void SPI1_Init ( void )
 
 	/* Initialize SPI
 	 * https://github.com/g4lvanix/STM32F4-examples/blob/master/SPI/main.c
-	 * 10.5 Mbits/s (APB2_Clock / 8)
+	 * 1... Mbits/s (APB2_Clock / 64)
 	 * Mode 0 ( CPHA on first edge , CPOL is Low )
 	 * Data size = 8 bits
 	 * Full duplex
@@ -159,7 +159,7 @@ void SPI1_Init ( void )
 
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_SPI1 , ENABLE );
 
-	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
+	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
 	SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;
 	SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
 	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;

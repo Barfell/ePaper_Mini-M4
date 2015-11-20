@@ -18,8 +18,8 @@
 #define BW_MASK 0b10101010
 #define INVERSE_MASK 0b01010101
 
-#define STAGE_TIME 5
-#define REPEAT_CYCLE 5
+#define STAGE_TIME 2
+#define REPEAT_CYCLE 2
 
 #define REVERSE( BYTE_TO_REVERSE ) BYTE_TO_REVERSE = REVERSE_TABLE[ BYTE_TO_REVERSE ]
 
@@ -33,8 +33,7 @@ typedef enum {
 	WHITE,
 	BLACK,
 	NEW,
-	NOTHING,
-	DUMMY
+	NOTHING
 }eSTAGE;
 
 typedef enum {
@@ -76,6 +75,8 @@ void DisplayInverse ( uint8_t * image );
 void DisplayBW ( uint8_t * image );
 void DisplayNew ( uint8_t * image );
 void DisplayNothing ();
+void DisplayUnicolorLine ( uint8_t line , eSTAGE stage );
+void DisplayDummyLine ( void );
 void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage );
 
 static const unsigned char REVERSE_TABLE[] =
