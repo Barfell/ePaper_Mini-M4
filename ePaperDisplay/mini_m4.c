@@ -147,7 +147,7 @@ void SPI1_Init ( void )
 
 	/* Initialize SPI
 	 * https://github.com/g4lvanix/STM32F4-examples/blob/master/SPI/main.c
-	 * 1... Mbits/s (APB2_Clock / 64)
+	 * 1.... Mbits/s (APB2_Clock / 64)
 	 * Mode 0 ( CPHA on first edge , CPOL is Low )
 	 * Data size = 8 bits
 	 * Full duplex
