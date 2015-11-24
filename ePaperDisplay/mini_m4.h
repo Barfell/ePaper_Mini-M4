@@ -22,5 +22,6 @@ uint8_t IsBusy ( void );
 void SPI1_Init ( void );
 uint8_t SPI1_Send(uint8_t data);
 uint8_t SPI1_Read ( const uint8_t * buffer , uint16_t length );
+uint8_t SPI1_Read_WithDelay ( const uint8_t * buffer , uint16_t length );
 
 #endif // __MINI_M4_H

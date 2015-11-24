@@ -1,38 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc 4.8.2 i686-w64-mingw32 -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F415RG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\ePaper_Mini-M4\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\ePaper_Mini-M4\ePaperDisplay -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib -I..\..\.. -I..\..\..\workspace\ePaper_Mini-M4\cmsis -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib\include -I..\..\..\workspace\ePaper_Mini-M4">
-      <target file="stm32f4xx_gpio.o" lastModified="1513aeda4f7">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="15102684cdf"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F415RG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\ePaper_Mini-M4\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\ePaper_Mini-M4\ePaperDisplay -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib -I..\..\.. -I..\..\..\workspace\ePaper_Mini-M4\cmsis -I..\..\..\workspace\ePaper_Mini-M4\cmsis_lib\include -I..\..\..\workspace\ePaper_Mini-M4">
+      <target file="stm32f4xx_gpio.o" lastModified="1513b7de445">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="1513b09dd10"/>
       </target>
-      <target file="ePaperDisplay.o" lastModified="1513aeda27b">
-         <source file="..\..\..\ePaperDisplay\ePaperDisplay.c" lastModified="1513aecebf5"/>
+      <target file="ePaperDisplay.o" lastModified="1513b7de284">
+         <source file="..\..\..\ePaperDisplay\ePaperDisplay.c" lastModified="1513b76ce59"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="1513aeda551">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="1510274ba78"/>
+      <target file="system_stm32f4xx.o" lastModified="1513b7de47c">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="1513b09dcf6"/>
       </target>
-      <target file="stm32f4xx_i2c.o" lastModified="1513aeda65e">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_i2c.c" lastModified="1510268923e"/>
+      <target file="stm32f4xx_i2c.o" lastModified="1513b7de523">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_i2c.c" lastModified="1513b09dd13"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="1513aeda38e">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="1510314a771"/>
+      <target file="startup_stm32f4xx.o" lastModified="1513b7de345">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="1513b09dcea"/>
       </target>
-      <target file="main.o" lastModified="1513aeda406">
-         <source file="..\..\..\main.c" lastModified="1513ae886c4"/>
+      <target file="main.o" lastModified="1513b7de3a3">
+         <source file="..\..\..\main.c" lastModified="1513b7c0a3a"/>
       </target>
-      <target file="stm32f4xx_spi.o" lastModified="1513aeda5d4">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="151026879f5"/>
+      <target file="stm32f4xx_spi.o" lastModified="1513b7de4cc">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="1513b09dd18"/>
       </target>
-      <target file="delay.o" lastModified="1513aeda2de">
-         <source file="..\..\..\ePaperDisplay\delay.c" lastModified="15103169058"/>
+      <target file="delay.o" lastModified="1513b7de2c9">
+         <source file="..\..\..\ePaperDisplay\delay.c" lastModified="1513b09dd1f"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="1513aeda48c">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="15102681fe8"/>
+      <target file="stm32f4xx_rcc.o" lastModified="1513b7de3ff">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="1513b09dd15"/>
       </target>
-      <target file="misc.o" lastModified="1513aeda6b9">
-         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="1510268e5ec"/>
+      <target file="misc.o" lastModified="1513b7de55b">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="1513b09dd0d"/>
       </target>
-      <target file="mini_m4.o" lastModified="1513aeda34b">
-         <source file="..\..\..\ePaperDisplay\mini_m4.c" lastModified="1513aeaae28"/>
+      <target file="mini_m4.o" lastModified="1513b7de316">
+         <source file="..\..\..\ePaperDisplay\mini_m4.c" lastModified="1513b6c427a"/>
       </target>
    </processor>
 </history>

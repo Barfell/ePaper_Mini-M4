@@ -128,7 +128,7 @@ void SPI1_Init ( void )
 	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_6 | GPIO_Pin_5 ;
 	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_DOWN;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
 
 	GPIO_Init( GPIOA , &GPIO_InitStruct );
@@ -151,7 +151,7 @@ void SPI1_Init ( void )
 
 	/* Initialize SPI
 	 * https://github.com/g4lvanix/STM32F4-examples/blob/master/SPI/main.c
-	 * 1.... Mbits/s (APB2_Clock / 64)
+	 * 0.3.. Mbits/s (APB2_Clock / 128)
 	 * Mode 0 ( CPHA on first edge , CPOL is Low )
 	 * Data size = 8 bits
 	 * Full duplex
@@ -163,7 +163,7 @@ void SPI1_Init ( void )
 
 	RCC_APB2PeriphClockCmd( RCC_APB2Periph_SPI1 , ENABLE );
 
-	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64;
+	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;
 	SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;
 	SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
 	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;
@@ -211,5 +211,24 @@ uint8_t SPI1_Read ( const uint8_t * buffer , uint16_t length )
 
 	ChangeCSState( Bit_SET );
 
+	return result;
+}
+
+uint8_t SPI1_Read_WithDelay ( const uint8_t * buffer , uint16_t length )
+{
+	uint8_t result = 0;
+
+	uint16_t i = 0;
+
+	ChangeCSState( Bit_RESET );
+
+	// send all data
+	for (i = 0; i < length; ++i)
+	{
+		result = SPI1_Send(*buffer++);
+		//delay_nus( 1 );
+	}
+
+	ChangeCSState( Bit_SET );
 	return result;
 }

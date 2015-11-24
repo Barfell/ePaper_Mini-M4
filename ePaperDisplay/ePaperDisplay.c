@@ -454,12 +454,13 @@ void DisplayLine ( uint8_t * image , uint8_t line , eSTAGE stage )
 	data[ 1 ] = 0x00;
 
 	for ( i = 0 ; i < 33 ; i++ )
-	{
 		data[ i + 2 ] = data_odd[ i ];
-		data[ i + 79 ] = data_even[ i ];
-	}
+
 	for ( i = 0 ; i < 44 ; i++ )
 		data[ i + 35 ] = data_scan[ i ];
+
+	for ( i = 0 ; i < 33 ; i++ )
+		data[ i + 79 ] = data_even[ i ];
 
 	uint8_t header[ 2 ] = { CMD_HDR , START_FRAME };
 
