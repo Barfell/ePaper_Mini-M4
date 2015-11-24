@@ -12,17 +12,19 @@ void EPD_Init ( void )
 	while ( IsBusy() )
 		delay_nus( 10 );
 
+	uint8_t ID = GetCOGid();
 	// Get ID from COG (0x11 = COG1, 0x12 = COG2).
-	if ( GetCOGid() != 0x11 )
+	if ( !(ID == 0x11 || ID == 0x12) )
 	{
-		// return;
+		ChangeLedState( ORANGE , Bit_SET );
+		//return;
 	}
 
 	DisableOE();
 
 	if ( !CheckBreakage() )
 	{
-		// ChangeLedState( RED , Bit_SET );
+		ChangeLedState( RED , Bit_SET );
 		// return;
 	}
 
@@ -44,24 +46,24 @@ void EPD_PowerOn ( void )
 {
 	uint8_t dummy = 0;
 
-	ChangeResetState( 		Bit_RESET );
-	ChangePowerState( 		Bit_RESET );
-	ChangeDischargeState( 	Bit_RESET );
-	ChangeBorderState( 		Bit_RESET );
-	ChangeCSState(			Bit_RESET );
+	dummy = SPI1_Send( 0x00 );
 
-	dummy = SPI1_Send( 0x00 );
-	dummy = SPI1_Send( 0x00 );
+	ChangeResetState( Bit_RESET );
+	ChangePowerState( Bit_RESET );
+	ChangeDischargeState( Bit_RESET );
+	ChangeBorderState( Bit_RESET );
+	ChangeCSState( Bit_RESET );
 
 	delay_nms( 5 );
 
-	ChangePowerState( 		Bit_SET );
+	ChangePowerState( Bit_SET );
 
 	delay_nms( 10 );
 
-	ChangeCSState(			Bit_SET );
-	ChangeResetState( 		Bit_SET );
-	ChangeBorderState( 		Bit_SET );
+
+	ChangeResetState( Bit_SET );
+	ChangeBorderState( Bit_SET );
+	ChangeCSState( Bit_SET );
 
 	delay_nms( 10 );
 

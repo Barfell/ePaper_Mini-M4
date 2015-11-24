@@ -8,10 +8,11 @@ int main ( void )
 {
 	SysTick_Init();
 	LEDs_Init();
-	ChangeLedState( ORANGE , Bit_SET );
+	GPIOs_Init();
+	//ChangeLedState( ORANGE , Bit_SET );
 	SPI1_Init();
 	EPD_Init();
-	ChangeLedState( ORANGE , Bit_RESET );
+	//ChangeLedState( ORANGE , Bit_RESET );
 
 	ChangeLedState( RED , Bit_SET );
 	DisplayImage( IMAGE );
@@ -20,7 +21,7 @@ int main ( void )
 
     while(1)
     {
-    	ToggleLed( ORANGE );
+    	//ToggleLed( ORANGE );
     	delay_nms( 500 );
     }
 }

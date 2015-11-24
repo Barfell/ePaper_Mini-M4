@@ -2,8 +2,8 @@
 #define Hello_World_height 176
 
 //#define DEBUG_BLACK
-#define DEBUG_WHITE
-//#define HELLO
+//#define DEBUG_WHITE
+#define HELLO
 //#define DAMIER
 
 #ifdef HELLO

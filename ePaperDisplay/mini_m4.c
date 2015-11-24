@@ -81,27 +81,31 @@ void GPIOs_Init( void )
 
 void ChangePowerState( BitAction state )
 {
-	GPIO_WriteBit( GPIOB, GPIO_Pin_1 , state );
+/*	if (state == Bit_SET )
+		GPIO_SetBits( GPIOB, GPIO_Pin_1 );
+	else
+		GPIO_ResetBits( GPIOB, GPIO_Pin_1 );*/
+	GPIO_WriteBit( GPIOB , GPIO_Pin_1 , state );
 }
 
 void ChangeResetState( BitAction state )
 {
-	GPIO_WriteBit( GPIOC, GPIO_Pin_11 , state );
+	GPIO_WriteBit( GPIOC , GPIO_Pin_11 , state );
 }
 
 void ChangeDischargeState( BitAction state )
 {
-	GPIO_WriteBit( GPIOC, GPIO_Pin_10 , state );
+	GPIO_WriteBit( GPIOC , GPIO_Pin_10 , state );
 }
 
 void ChangeBorderState( BitAction state )
 {
-	GPIO_WriteBit( GPIOB, GPIO_Pin_14 , state );
+	GPIO_WriteBit( GPIOB , GPIO_Pin_14 , state );
 }
 
 void ChangeCSState( BitAction state )
 {
-	GPIO_WriteBit( GPIOA, GPIO_Pin_4 , state );
+	GPIO_WriteBit( GPIOA , GPIO_Pin_4 , state );
 }
 
 uint8_t IsBusy ( void )
@@ -124,7 +128,7 @@ void SPI1_Init ( void )
 	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_6 | GPIO_Pin_5 ;
 	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_DOWN;
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
 
 	GPIO_Init( GPIOA , &GPIO_InitStruct );
